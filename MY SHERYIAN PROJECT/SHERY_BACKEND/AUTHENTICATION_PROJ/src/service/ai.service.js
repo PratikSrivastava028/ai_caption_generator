@@ -22,8 +22,13 @@ const contents = [
 const response = await ai.models.generateContent({  //response send to AI model 
   model: "gemini-2.5-flash",
   contents: contents,
+  config:{
+    systemInstruction:`generate captions are maximum of 2 lines.
+
+    also use emojis in caption.`
+  }
 });
-console.log(response.text);
+return response.text;
 }
 
 
